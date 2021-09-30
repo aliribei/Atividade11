@@ -6,9 +6,10 @@ public class Main {
     private static Scanner sc;
 
     public static void main(String[] args) {
-        short opcao = 4;
+        short opcao = 5;
         double valor = 100.00;
         double valorSaque = 5.0;
+        double valorTransferencia = 20.0;
         double saldo;
 
         sc = new Scanner(System.in);
@@ -38,18 +39,30 @@ public class Main {
                     }else {
                         System.out.printf(" O valor %.2f foi sacado da sua conta!\n O saldo da sua conta é : %.2f", valorSaque, saldo);
                     }
-                    break;
+                break;
                 case 2:
                     conta.depositar(valor);
                     System.out.printf(" O valor %.2f foi depositado na sua conta!\n", valor);
-                    break;
+                break;
                 case 3:
                     saldo = conta.saldo();
                     System.out.printf(" O saldo da conta é:  %f\n", saldo);
-                    break;
+                break;
                 case 4:
+                    valorTransferencia = 80.0;
+                    saldo = conta.saldo();
+                    conta.sacar(calculadora1.taxaTransferencia(valorTransferencia));
+                    if ( valorTransferencia > saldo)
+                    {
+                        System.out.printf("Saldo insuficiente: %.2f\n", saldo);
+                        break;
+                    }else {
+                        System.out.printf(" O valor %.2f foi tranferido da sua conta!\n O saldo atual da sua conta é : %.2f", valorTransferencia, saldo);
+                    }
+                break;
+                case 5:
                     exibirMenu();
-                 break;
+                break;
             }
         }while(opcao != 0);
 
@@ -83,7 +96,8 @@ public class Main {
         System.out.println("| 1 - Realizar saque                        |");
         System.out.println("| 2 - Fazer um deposito                     |");
         System.out.println("| 3 - Exibir saldo                          |");
-        System.out.println("| 4 - Exibir o menu de opções               |");
+        System.out.println("| 4 - Realizar uma transferência            |");
+        System.out.println("| 5 - Exibir o menu de opções               |");
         System.out.println("| 0 - Sair                                  |");
         System.out.println("+-------------------------------------------+");
     }
