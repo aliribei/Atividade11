@@ -1,6 +1,5 @@
 package Atividade16;
 
-import java.io.Console;
 import java.util.Scanner;
 
 public class Main {
@@ -29,12 +28,13 @@ public class Main {
 
             switch(opcao){
                 case 1:
-                    valorSaque = 5.0;
+                    valorSaque = 50.0;
                     saldo = conta.saldo();
                     conta.sacar(calculadora1.taxaSaque(valorSaque));
                     if ( valorSaque > saldo)
                     {
                         System.out.printf("Saldo insuficiente: %.2f\n", saldo);
+                        break;
                     }else {
                         System.out.printf(" O valor %.2f foi sacado da sua conta!\n O saldo da sua conta é : %.2f", valorSaque, saldo);
                     }
@@ -78,7 +78,6 @@ public class Main {
         System.out.println("+-------------------------------------------+");
         System.out.println("+------------------Bem Vindo----------------+");
         System.out.println("+-------------------------------------------+");
-        System.out.println("|        Cadastro de produtos               |");
         System.out.println("|          Escolha uma opção:               |");
         System.out.println("+-------------------------------------------+");
         System.out.println("| 1 - Realizar saque                        |");
